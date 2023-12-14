@@ -2,6 +2,7 @@ package Gun07;
 
 import Utlity.BaseDriver;
 import Utlity.MyFunc;
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -27,6 +28,7 @@ public class _02_Seneryo extends BaseDriver {
     public void Test(){
         driver.get("https://www.saucedemo.com/");
 
+       // String total="49.66";
         MyFunc.Bekle(1);
 
         WebElement mail = driver.findElement(By.xpath("//input[@id='user-name']"));
@@ -83,6 +85,9 @@ public class _02_Seneryo extends BaseDriver {
         WebElement contine = driver.findElement(By.xpath("//input[@id='continue']"));
         contine.click();
         MyFunc.Bekle(1);
+
+        //WebElement totaltplm= driver.findElement(By.xpath("//div[@class='summary_info_label summary_total_label']"));
+        //Assert.assertTrue(totaltplm.getText().equals(total));
 
 
 
