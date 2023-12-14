@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class _02_Seneryo extends BaseDriver {
 
     //        Senaryo
@@ -25,10 +27,10 @@ public class _02_Seneryo extends BaseDriver {
 
 
     @Test
-    public void Test(){
+    public void Test() {
         driver.get("https://www.saucedemo.com/");
 
-       // String total="49.66";
+        // String total="49.66";
         MyFunc.Bekle(1);
 
         WebElement mail = driver.findElement(By.xpath("//input[@id='user-name']"));
@@ -86,14 +88,24 @@ public class _02_Seneryo extends BaseDriver {
         contine.click();
         MyFunc.Bekle(1);
 
-        //WebElement totaltplm= driver.findElement(By.xpath("//div[@class='summary_info_label summary_total_label']"));
-        //Assert.assertTrue(totaltplm.getText().equals(total));
+        List<WebElement> ucretler=driver.findElements(By.xpath("//div[@class='inventory_item_price']"));
 
+        double toplam=0;
+        for(WebElement e: ucretler)
+        {
+            System.out.println(e.getText());
+            toplam= toplam+ Double.parseDouble( e.getText().replaceAll("[^0-9,.]","")   );
+        }
+        System.out.println("toplam = " + toplam);
 
+        // item total alındı ve double a çevrildi
+        WebElement itemtotalElement=driver.findElement(By.xpath("//div[@class='summary_subtotal_label']"));
+        Double itemtotal= Double.parseDouble( itemtotalElement.getText().replaceAll("[^0-9,.]","")   );
+        System.out.println("itemtotal = " + itemtotal);
 
+        Assert.assertTrue("Değerler eşit değil", toplam== itemtotal);
 
-
-
+        BekleVeKapat();
 
 
         BekleVeKapat();
