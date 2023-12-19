@@ -24,11 +24,11 @@ public class MentoringCase extends BaseDriver {
         MyFunc.Bekle(1);
 
         WebElement firstname = driver.findElement(By.cssSelector("[id='FirstName']"));
-        firstname.sendKeys("Zorbey ");
+        firstname.sendKeys("Efe ");
         MyFunc.Bekle(1);
 
         WebElement lastname = driver.findElement(By.cssSelector("[id='LastName']"));
-        lastname.sendKeys("DURMAZ ");
+        lastname.sendKeys("90cm ");
         MyFunc.Bekle(1);
 
         WebElement days = driver.findElement(By.cssSelector("[value='18']"));
@@ -44,7 +44,7 @@ public class MentoringCase extends BaseDriver {
         MyFunc.Bekle(1);
 
         WebElement mail = driver.findElement(By.cssSelector("[id='Email']"));
-        mail.sendKeys("zorbey@gmail.com ");
+        mail.sendKeys("Neslihan@gmail.com ");
         MyFunc.Bekle(1);
 
         WebElement companyname = driver.findElement(By.cssSelector("[id='Company']"));
