@@ -12,10 +12,14 @@ import java.util.Set;
 
 public class _04_WindowsGecis extends BaseDriver {
     @Test
-    public void Test(){
-        driver.get("https://www.selenium.dev");
-        String anaSayfaWindowID = driver.getWindowHandle();
-        System.out.println("anasayfaWindowsID"+ anaSayfaWindowID);
+    public void Test() {
+
+        driver.get("https://www.selenium.dev/");
+
+        // şu aşamada ana sayfadayım
+        // bulunulan windowid yi almak için
+        String anasayfaWindowID = driver.getWindowHandle();
+        System.out.println("anasayfaWindowID = " + anasayfaWindowID);
 
         List<WebElement> linkler = driver.findElements(By.cssSelector("a[target='_blank']"));
 
@@ -23,17 +27,20 @@ public class _04_WindowsGecis extends BaseDriver {
             if (!link.getAttribute("href").contains("mail"))
                 link.click();
 
-        Set<String> windowsIDler = driver.getWindowHandles();
-        for (String id : windowsIDler)
-            System.out.println("id" + id);
+        // şu aşamada bütün sayaflar açıldı
+        Set<String> windowsIdler = driver.getWindowHandles();
+        for (String id : windowsIdler)
+            System.out.println("id = " + id);
 
-        driver.switchTo().window(anaSayfaWindowID);
+        // şu anda en son açılan sayfadayım ana sayfaya geçmek için
+        driver.switchTo().window(anasayfaWindowID); // ana sayfaya geçtim
 
-        MyFunc.Bekle(20);
+        MyFunc.Bekle(10);
         BekleVeKapat();
     }
+
     @Test
-    public void Test2(){
+    public void Test2() {
         driver.get("https://www.selenium.dev/");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         MyFunc.Bekle(2);
@@ -55,7 +62,6 @@ public class _04_WindowsGecis extends BaseDriver {
         driver.switchTo().window(anaSayfaWindowId); // ilgili Window (Tab) a geçiş
 
         BekleVeKapat();
-
 
 
     }
