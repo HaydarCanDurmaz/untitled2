@@ -52,7 +52,7 @@ public class MentoringCase5 extends BaseDriver {
         WebElement iframe = driver.findElement(By.id("frame1"));
         driver.switchTo().frame(iframe);
 
-        WebElement text = driver.findElement(By.id("(//h1[@id='sampleHeading'])[1]"));
+        WebElement text = driver.findElement(By.xpath("(//h1[@id='sampleHeading'])[1]"));
         System.out.println(text.getText());
 
         BekleVeKapat();
